@@ -1,6 +1,6 @@
 import { types } from "../types/types";
 
 // return accion para abrir el modal
-export const uiOpenModal = () => ({ type: types.uiOpenModal });
+export const OpenModal = () => ({ type: types.OpenModal });
 // return accion para cerrar el modal
-export const uiCloseModal = () => ({ type: types.uiCloseModal }); 
+export const CloseModal = () => ({ type: types.CloseModal }); 

@@ -3,7 +3,8 @@ import { types } from '../types/types';
 
 const initialState = {
     Hotels: [],
-    LoadingHotels: false
+    LoadingHotels: false,
+    HotelActiveLoaded: null
 };
 
 export const hotelsReducer = (state = initialState, action) => {
@@ -20,6 +21,20 @@ export const hotelsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 LoadingHotels: action.payload
+            }
+        }
+
+        case types.loadedActiveHotel: {
+            return {
+                ...state,
+                HotelActiveLoaded: action.payload
+            }
+        }
+
+        case types.clearActiveHotel: {
+            return {
+                ...state,
+                HotelActiveLoaded: null
             }
         }
 

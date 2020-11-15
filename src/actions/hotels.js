@@ -30,3 +30,27 @@ const loadingHotel = (loading) => ({
     type: types.loadingHotels,
     payload: loading
 });
+
+export const activeHotel = (id) => {
+    return async (dispatch) => {
+        try {
+            const resp = await fetchApi(`hotels/${id}`);
+            const body = await resp.json();
+
+            const hotel = body;
+            // cargo el hotel activo en mi store de redux
+            dispatch(ActiveHotelLoaded(hotel));
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+// agregar al state de redux las notificaciones de la bd
+const ActiveHotelLoaded = (hotel) => ({
+    type: types.loadedActiveHotel,
+    payload: hotel
+});
+
+export const clearActiveHotel = () => ({ type: types.clearActiveHotel })

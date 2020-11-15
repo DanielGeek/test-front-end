@@ -6,10 +6,12 @@ export const types = {
 
     loadedHotels: '[HOTELS] Loaded hotels',
     loadingHotels: '[HOTELS] Loading data hotels',
+    loadedActiveHotel: '[HOTELS] Loaded hotel by id',
+    clearActiveHotel: '[HOTELS] Clear active hotel',
 
     loadedPayments: '[PAYMENTS] Loaded payments',
     loadingPayments: '[PAYMENTS] Loading data payments',
 
-    uiOpenModal: '[ui] Open modal',
-    uiCloseModal: '[ui] Close modal',
+    OpenModal: '[MODAL] Open modal',
+    CloseModal: '[MODAL] Close modal',
 }

@@ -7,12 +7,12 @@ const initialState = {
 export const modalReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case types.uiOpenModal:
+        case types.OpenModal:
             return {
                 ...state,
                 modalOpen: true
             }
-        case types.uiCloseModal:
+        case types.CloseModal:
             return {
                 ...state,
                 modalOpen: false

@@ -67,7 +67,6 @@ export const Home = () => {
                 <NotificationsDetails />
 
             </div>
-
         </section>
 
     )

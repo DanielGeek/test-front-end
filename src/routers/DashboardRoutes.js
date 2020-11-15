@@ -7,6 +7,7 @@ import { HotelSearch } from '../components/Hotels/HotelSearch'
 import { SettingsView } from '../components/SettingsView/SettingsView'
 import { HotelsAvailable } from '../components/Hotels/HotelsAvailable'
 import { NotificationsDetails } from '../components/Notifications/NotificationsDetails'
+import { HotelModal } from '../components/Hotels/HotelModal'
 
 export const DashboardRoutes = () => {
 
@@ -27,6 +28,7 @@ export const DashboardRoutes = () => {
 
                     <Redirect to="/home" />
                 </Switch>
+                <HotelModal />
             </div>
         </>
     )
