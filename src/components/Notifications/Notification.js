@@ -7,7 +7,7 @@ export const Notification = ({ notification }) => {
     return (
         <div className="notification mb30 mt10">
             <div className="notif-left flex-display flexa-jcsb">
-                {/* <ion-icon className="icoGray" name="mail-open-outline"></ion-icon> */}
+                <ion-icon className="icoGray" name="mail-open-outline"></ion-icon>
                 <h4 className="textsize-3">{date}</h4>
             </div>
             <div className="notif-right">

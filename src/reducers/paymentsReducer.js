@@ -3,24 +3,24 @@ import { types } from '../types/types';
 
 const initialState = {
 
-    Notifications: [],
-    Loading: false
+    Payments: [],
+    LoadingPayments: false
 };
 
-export const storeReducer = (state = initialState, action) => {
+export const paymentsReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
 
-        case types.loadedNotifications:
+        case types.loadedPayments:
             return {
                 ...state,
-                Notifications: [...action.payload]
+                Payments: [...action.payload]
             }
-        case types.loading: {
+        case types.loadingPayments: {
             return {
                 ...state,
-                Loading: action.payload
+                LoadingPayments: action.payload
             }
         }
 

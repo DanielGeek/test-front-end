@@ -1,37 +1,37 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { hotelsStartLoading } from '../../actions/hotels';
+import { HotelsView } from './HotelsView';
+import styled from "@emotion/styled";
+
+const ContainerHotels = styled.div`
+    margin-bottom: 200px;
+    margin-left: 0px;
+`;
 
 export const HotelsAvailable = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(hotelsStartLoading());
+        console.log(LoadingHotels)
+    }, [dispatch])
+
+    const { Hotels, LoadingHotels } = useSelector(state => state.hotels);
     return (
-        <Fragment>
+        <div className="row">
             <h2 className="ml10px mt10 textsize-1 fs-sbold cBlack">Hoteles Disponibles</h2>
+            <ContainerHotels className="row flex-dir-r w96Porc flex-wrap ">
+                {
+                    Hotels.map(hotel => (
+                        <HotelsView key={hotel.id}
+                            {...hotel}
+                        />
+                    ))
+                }
+            </ContainerHotels>
 
-            <div className="row flex-dir-r w96Porc flex-wrap ">
-                {/* TODO: hacer evento onclick para mostrar modal */}
-                <div className="card row flex-dir-c flexa-jcsb flexa-ai p10 img imghotel-1 wMin150 hMin150 m2px mt10 bcWhite">
-                    <h2 className="textsize-1 fs-sbold cWhite">WANHARA HOTEL</h2>
-                    <Link className="btn bcPurple" to="/#">Reservar</Link>
-                </div>
-
-
-                <div className="card row flex-dir-c flexa-jcsb flexa-ai p10 img imghotel-2 wMin150 hMin150 m2px mt10 bcWhite">
-                    <h2 className="textsize-1 fs-sbold cWhite">WANHARA HOTEL</h2>
-                    <Link className="btn bcPurple" to="/#" >Reservar</Link>
-                </div>
-                <div className="card row flex-dir-c flexa-jcsb flexa-ai p10 img imghotel-3 wMin150 hMin150 m2px mt10 bcWhite">
-                    <h2 className="textsize-1 fs-sbold cWhite">WANHARA HOTEL</h2>
-                    <Link className="btn bcPurple" to="/#">Reservar</Link>
-                </div>
-                <div className="card row flex-dir-c flexa-jcsb flexa-ai p10 img imghotel-4 wMin150 hMin150 m2px mt10 bcWhite">
-                    <h2 className="textsize-1 fs-sbold cWhite">WANHARA HOTEL</h2>
-                    <Link className="btn bcPurple" to="/#">Reservar</Link>
-                </div>
-
-                <div className="card row flex-dir-c flexa-jcsb flexa-ai p10 img imghotel-5 wMin150 hMin150 m2px mt10 bcWhite">
-                    <h2 className="textsize-1 fs-sbold cWhite">WANHARA HOTEL</h2>
-                    <Link className="btn bcPurple" to="/#">Reservar</Link>
-                </div>
-            </div>
-        </Fragment>
+        </div>
     )
 }

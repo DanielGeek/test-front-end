@@ -1,11 +1,11 @@
 import { fetchApi } from "../helpers/fetch";
 import { types } from "../types/types";
 
-// obtener ganadores de la bd
+// obtener notifications de la api
 export const notificationsStartLoading = () => {
     return async (dispatch) => {
         try {
-            dispatch(loading(true));
+            dispatch(loadingNotifications(true));
             const resp = await fetchApi('notifications');
             const body = await resp.json();
 
@@ -13,7 +13,7 @@ export const notificationsStartLoading = () => {
             console.log(notifications)
             dispatch(notificacionsLoaded(notifications));
 
-            dispatch(loading(false));
+            dispatch(loadingNotifications(false));
 
         } catch (error) {
             console.log(error);
@@ -27,7 +27,7 @@ const notificacionsLoaded = (notifications) => ({
     payload: notifications
 });
 
-export const loading = (loading) => ({
-    type: types.loading,
-    payload: loading
+const loadingNotifications = (loadingNotifications) => ({
+    type: types.loadingNotifications,
+    payload: loadingNotifications
 });

@@ -5,8 +5,8 @@ html,
 body {
     box-sizing: border-box;
     height: 100%;
-    padding: 0;
-    margin: 0;
+    padding: 0px !important;
+    margin: 0px !important;
     overflow: auto;
     background-color: #eaebef;
     font-family: 'Raleway', sans-serif;
@@ -59,6 +59,7 @@ ion-icon {
 .flex-wrap{ flex-wrap: wrap; }
 .flex-display { display: flex; }
 
+.container { max-width: 1900px; }
 .w60{ min-width: 60px; }
 .wMax1000{ max-width: 1100px; }
 .w96Porc{ width: 96%; }
@@ -76,6 +77,8 @@ ion-icon {
 .h100vh{ height:100vh; }
 
 .container{
+    margin: 0px !important;
+    padding-left: 0px !important;
     display: flex;
     flex-direction: row;
 }
